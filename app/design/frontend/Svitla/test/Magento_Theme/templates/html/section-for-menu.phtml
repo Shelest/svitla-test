@@ -1,0 +1,21 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @var $block \Magento\Theme\Block\Html\Topmenu
+ */
+?>
+
+<span data-action="toggle-nav" class="action nav toggle"><span><?= /* @escapeNotVerified */ __('Toggle Nav') ?></span></span>
+<div class="sections nav-sections">
+    <?= $block->getChildHtml() ?>
+</div>

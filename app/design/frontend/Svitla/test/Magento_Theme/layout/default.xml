@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <!--Remove not needed elements from the front-->
+    <referenceBlock name="report.bugs" remove="true" />
+    <referenceBlock name="footer_links" remove="true" />
+    <referenceBlock name="navigation.sections" remove="true" />
+
+    <!--Set dimensions for the logo-->
+    <referenceBlock name="logo">
+        <arguments>
+            <argument name="logo_img_width" xsi:type="number">70</argument>
+            <argument name="logo_img_height" xsi:type="number">20</argument>
+        </arguments>
+    </referenceBlock>
+
+    <!--Custom structure for menu-->
+    <move element="top.search" before="section.for.menu" destination="header.container"/>
+    <move element="catalog.topnav" destination="section.for.menu"/>
+    <referenceContainer name="header.container">
+        <block class="Magento\Framework\View\Element\Template" name="section.for.menu" before="breadcrumbs" template="Magento_Theme::html/section-for-menu.phtml"/>
+    </referenceContainer>
+</page>

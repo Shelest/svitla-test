@@ -1,0 +1,99 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    //  Newsletter subscription
+    .block.newsletter {
+        margin-bottom: @indent__xl;
+        .lib-css(max-width, 280px);
+
+        .form.subscribe {
+            display: table;
+            width: 100%;
+        }
+
+        .fieldset {
+            display: table-cell;
+            margin: 0;
+            padding: 0;
+            vertical-align: top;
+        }
+
+        .field {
+            margin: 0;
+
+            .control {
+                .lib-icon-font(
+                @icon-envelope,
+                @_icon-font-size: 35px,
+                @_icon-font-line-height: 33px,
+                @_icon-font-color: @form-element-input-placeholder__color
+                );
+                display: block;
+
+                &:before {
+                    display: none;
+                    position: absolute;
+                }
+            }
+        }
+
+        input {
+            border-color: #2d4271;
+            border-width: 2px;
+            font-style: italic;
+            padding-left: 10px;
+            .lib-font-size(@font-size__s);
+        }
+
+        .title {
+            display: none;
+        }
+
+        .label {
+            &:extend(.abs-visually-hidden all);
+        }
+
+        .actions {
+            display: table-cell;
+            vertical-align: top;
+            width: 1%;
+        }
+
+        .action.subscribe {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            margin-left: -1px;
+            text-transform: uppercase;
+            .lib-font-size(@font-size__s);
+            .lib-css(font-weight, @font-weight__semibold);
+            .lib-css(letter-spacing, 1px);
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+    .block.newsletter {
+        float: right;
+        width: 45%;
+
+        .field {
+            margin-right: 5px;
+
+            .control {
+                width: 100%;
+            }
+        }
+    }
+}

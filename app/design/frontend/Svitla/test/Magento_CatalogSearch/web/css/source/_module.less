@@ -1,0 +1,294 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Variables
+//  _____________________________________________
+
+@autocomplete__background-color: @color-white;
+@autocomplete__border: 1px solid @form-element-input__border-color;
+@autocomplete-item__border: 1px solid @color-gray90;
+@autocomplete-item__hover__color: @color-gray91;
+@autocomplete-item-amount__color: @color-gray60;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .block-search {
+        margin: 0;
+
+        .block {
+            &-title {
+                display: none;
+            }
+            &-content {
+                margin: 10px 0;
+                position: relative;
+
+                input {
+                    border: 0;
+                    .lib-css(box-shadow, none);
+                }
+            }
+        }
+
+        .label {
+            .lib-icon-font(
+            @_icon-font-content: @icon-search,
+            @_icon-font-size: 21px,
+            @_icon-font-line-height: 21px,
+            @_icon-font-color: @minicart-icons-color,
+            @_icon-font-color-hover: @minicart-icons-color-hover,
+            @_icon-font-color-active: @minicart-icons-color-hover,
+            @_icon-font-text-hide: true
+            );
+            display: none;
+
+            &.active {
+                + .control {
+                    input {
+                        position: static;
+                    }
+                }
+            }
+        }
+
+        .action.search {
+            @icon-lh: 31px;
+            display: inline-block;
+            .lib-css(opacity, 1);
+
+            .lib-button-icon(
+                @_icon-font-content: @icon-search,
+                @_icon-font-text-hide: true,
+                @_icon-font-color: @color-white,
+                @_icon-font-line-height: @icon-lh
+            );
+            .lib-button-reset();
+            padding: 0;
+            position: absolute;
+            left: @indent__xs;
+            top: 0;
+            z-index: 1;
+
+            &:focus {
+                &:before {
+                    .lib-css(color, @color-gray20);
+                }
+            }
+        }
+
+        .control {
+            .lib-css(background-color, transparent);
+            margin: 0;
+            padding: 0;
+        }
+
+        input {
+            .lib-css(background-color, #14233e);
+            .lib-input-placeholder(transparent);
+            color: #bfbfbf;
+            margin: 0;
+            padding: 0 0 0 @indent__l;
+        }
+
+        .nested {
+            display: none;
+        }
+    }
+
+    .search-autocomplete {
+        &:extend(.abs-add-box-sizing all);
+        display: none;
+        margin-top: -15px;
+        overflow: hidden;
+        position: absolute;
+        z-index: 3;
+
+        ul {
+            .lib-list-reset-styles();
+
+            li {
+                .lib-css(border-top, @autocomplete-item__border);
+                cursor: pointer;
+                margin: 0;
+                padding: @indent__xs @indent__xl @indent__xs @indent__s;
+                position: relative;
+                text-align: left;
+                white-space: normal;
+
+                &:not(:empty) {
+                    border-top: 0;
+                    .lib-css(border, @autocomplete__border);
+                    .lib-css(background, @autocomplete__background-color);
+                }
+
+                &:first-child {
+                    border-top: none;
+                }
+
+                &:hover,
+                &.selected {
+                    .lib-css(background, @autocomplete-item__hover__color);
+                }
+
+                .amount {
+                    .lib-css(color, @autocomplete-item-amount__color);
+                    position: absolute;
+                    right: 7px;
+                    top: @indent__xs;
+                }
+            }
+        }
+    }
+
+    .form.search.advanced {
+        .fields.range {
+            .field {
+                &:first-child {
+                    position: relative;
+
+                    .control {
+                        padding-right: 25px;
+
+                        &:after {
+                            content: ' \2013 ';
+                            display: inline-block;
+                            position: absolute;
+                            right: 0;
+                            text-align: center;
+                            top: 6px;
+                            width: 25px;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    position: relative;
+
+                    div.mage-error[generated] {
+                        left: 0;
+                        position: absolute;
+                        top: 32px;
+                    }
+                }
+
+                &.with-addon {
+                    .control {
+                        padding-right: 45px;
+                    }
+                }
+            }
+        }
+
+        .group.price {
+            .addon {
+                .addafter {
+                    background: none;
+                    border: 0;
+                    padding-top: 6px;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+            }
+        }
+    }
+
+    .search.summary {
+        margin-bottom: @indent__s;
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .block{
+        &-search {
+            background: #1b3550;
+            border-top: 1px solid #d1d1d1;
+            clear: both;
+            height: 0;
+            margin: 0;
+            overflow: hidden;
+            padding: 0 15px 0;
+            position: relative;
+            z-index: 3;
+
+            .lib-css(transition, height 0.5s, 1);
+            .lib-clearfix();
+
+            .label {
+                float: none;
+            }
+        }
+        &-content {
+            margin: 10px 0 0;
+            position: relative;
+
+            input {
+                border: 0;
+            }
+        }
+    }
+}
+
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .block-search {
+        float: right;
+        padding-left: 15px;
+        position: absolute;
+        right: 100px;
+        top: 50px;
+        width: 250px;
+        z-index: 4;
+
+        .label {
+            &:extend(.abs-visually-hidden-desktop all);
+        }
+
+        .control {
+            border-top: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            top: auto;
+        }
+
+        .nested {
+            display: none;
+            padding-top: 5px;
+            position: absolute;
+        }
+
+        .block-content input {
+            .lib-input-placeholder(transparent);
+            border: 1px solid #c2c2c2;
+            background-color: @color-white;
+            margin: 0;
+            padding: 0 @indent__l 0 @indent__s;
+            position: static;
+        }
+
+        .action.search {
+            left: auto;
+            right: @indent__xs;
+        }
+    }
+
+    .search-autocomplete {
+        margin-top: 0;
+    }
+}
