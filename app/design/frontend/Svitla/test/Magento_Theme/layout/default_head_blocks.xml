@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link rel="apple-touch-icon" sizes="180x180" src="/images/apple-touch-icon.png"/>
+        <link rel="icon" type="image/png" sizes="32x32" src="/images/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" src="/images/favicon-16x16.png"/>
+        <link rel="mask-icon" src="/images/safari-pinned-tab.svg"/>
+        <meta name="msapplication-TileColor" content="#ffe600"/>
+        <meta name="theme-color" content="#ffe600"/>
+    </head>
+</page>

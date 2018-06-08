@@ -42,7 +42,7 @@ define([
             this.toggleAction = $(this.options.toggleActionEl).detach().clone();
             this.pageWrapper.prepend(this.toggleAction);
 
-            this.mobileNav = $(this.element).detach().clone();
+            this.mobileNav = $(this.element).detach();
             this.navContainer.append(this.mobileNav);
             this.mobileNav.find('> ul').addClass('nav');
             this.mobileNav.scroll($.proxy(function () {
@@ -53,7 +53,6 @@ define([
             this._bindDocumentEvents();
         },
         /**
-         * @param {jQuery.Event} e
          * @private
          */
         _hideAllSubmenus: function () {
